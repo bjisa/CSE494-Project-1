@@ -9,6 +9,15 @@
 #import "StockDetailsViewController.h"
 
 @interface StockDetailsViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *companyName;
+@property (weak, nonatomic) IBOutlet UILabel *exchange;
+@property (weak, nonatomic) IBOutlet UILabel *change;
+@property (weak, nonatomic) IBOutlet UILabel *range;
+@property (weak, nonatomic) IBOutlet UILabel *volume;
+@property (weak, nonatomic) IBOutlet UILabel *averageVolume;
+@property (weak, nonatomic) IBOutlet UILabel *yearHigh;
+@property (weak, nonatomic) IBOutlet UILabel *yearLow;
+@property (weak, nonatomic) IBOutlet UILabel *marketCapitalization;
 
 @end
 
@@ -16,7 +25,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.companyName.text = self.stockData[@"Name"];
+    self.exchange.text = [NSString stringWithFormat:@"(%@: %@)", self.stockData[@"StockExchange"], self.stockData[@"symbol"]];
+    self.change.text = [NSString stringWithFormat:@"%@ (%.2f%%)", self.stockData[@"Change"], [self.stockData[@"Percent"] doubleValue]];
+    self.range.text = self.stockData[@"DaysRange"];
+    self.volume.text = self.stockData[@"Volume"];
+    self.averageVolume.text = self.stockData[@"AverageDailyVolume"];
+    self.yearHigh.text = self.stockData[@"YearHigh"];
+    self.yearLow.text = self.stockData[@"YearLow"];
+    self.marketCapitalization.text = self.stockData[@"MarketCapitalization"];
 }
 
 - (void)didReceiveMemoryWarning {

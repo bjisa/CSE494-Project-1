@@ -10,4 +10,6 @@
 
 @interface StockDetailsViewController : UIViewController
 
+@property NSDictionary * stockData;
+
 @end
