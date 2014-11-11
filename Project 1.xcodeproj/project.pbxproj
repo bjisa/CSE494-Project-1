@@ -18,6 +18,7 @@
 		664CAD101A01A61200D6B4FF /* Portfolio.m in Sources */ = {isa = PBXBuildFile; fileRef = 664CAD0F1A01A61200D6B4FF /* Portfolio.m */; };
 		664CAD131A01A68000D6B4FF /* Stock.m in Sources */ = {isa = PBXBuildFile; fileRef = 664CAD121A01A68000D6B4FF /* Stock.m */; };
 		669144F31A099C930006A4FA /* PortfolioTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 669144F21A099C930006A4FA /* PortfolioTableViewCell.m */; };
+		95EA04041A12BEC4001CD62A /* StockDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95EA04031A12BEC4001CD62A /* StockDetailsViewController.m */; };
 		9D55F7A41A05810900B630CC /* StatusTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D55F7A31A05810900B630CC /* StatusTableViewCell.m */; };
 		9D7BF61A1A0346F10037E6D9 /* AddStockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D7BF6191A0346F10037E6D9 /* AddStockViewController.m */; };
 		9D8D95541A09598C00B289A1 /* redarrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D8D95521A09598C00B289A1 /* redarrow.png */; };
@@ -57,6 +58,8 @@
 		664CAD121A01A68000D6B4FF /* Stock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stock.m; sourceTree = "<group>"; };
 		669144F11A099C930006A4FA /* PortfolioTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PortfolioTableViewCell.h; sourceTree = "<group>"; };
 		669144F21A099C930006A4FA /* PortfolioTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PortfolioTableViewCell.m; sourceTree = "<group>"; };
+		95EA04021A12BEC4001CD62A /* StockDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StockDetailsViewController.h; sourceTree = "<group>"; };
+		95EA04031A12BEC4001CD62A /* StockDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StockDetailsViewController.m; sourceTree = "<group>"; };
 		9D55F7A21A05810900B630CC /* StatusTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusTableViewCell.h; sourceTree = "<group>"; };
 		9D55F7A31A05810900B630CC /* StatusTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusTableViewCell.m; sourceTree = "<group>"; };
 		9D7BF6181A0346F10037E6D9 /* AddStockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddStockViewController.h; path = ../AddStockViewController.h; sourceTree = "<group>"; };
@@ -125,6 +128,8 @@
 				664CACF51A0198E100D6B4FF /* Images.xcassets */,
 				664CACF71A0198E100D6B4FF /* LaunchScreen.xib */,
 				664CACE51A0198E100D6B4FF /* Supporting Files */,
+				95EA04021A12BEC4001CD62A /* StockDetailsViewController.h */,
+				95EA04031A12BEC4001CD62A /* StockDetailsViewController.m */,
 			);
 			path = "Project 1";
 			sourceTree = "<group>";
@@ -267,6 +272,7 @@
 				664CACEB1A0198E100D6B4FF /* AppDelegate.m in Sources */,
 				664CACEE1A0198E100D6B4FF /* StockStatusViewController.m in Sources */,
 				669144F31A099C930006A4FA /* PortfolioTableViewCell.m in Sources */,
+				95EA04041A12BEC4001CD62A /* StockDetailsViewController.m in Sources */,
 				664CAD101A01A61200D6B4FF /* Portfolio.m in Sources */,
 				664CACE81A0198E100D6B4FF /* main.m in Sources */,
 				9D55F7A41A05810900B630CC /* StatusTableViewCell.m in Sources */,

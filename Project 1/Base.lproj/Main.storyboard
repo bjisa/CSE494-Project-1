@@ -61,6 +61,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="removeButton" destination="rQY-x5-dBK" id="1wx-0E-u1O"/>
+                        <segue destination="Nrg-8a-ghl" kind="push" identifier="StockDetails" id="Ok8-ol-OyD"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="veu-Dj-pMd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -189,10 +190,32 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="zzj-OQ-nRK"/>
+                    <connections>
+                        <segue destination="Nrg-8a-ghl" kind="push" identifier="StockDetails" id="1tJ-fg-T5Z"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b6a-61-QLm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="932" y="359"/>
+            <point key="canvasLocation" x="914" y="437"/>
+        </scene>
+        <!--Stock Details View Controller-->
+        <scene sceneID="xgV-6S-Ua3">
+            <objects>
+                <viewController id="Nrg-8a-ghl" customClass="StockDetailsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="esD-Nz-4bj"/>
+                        <viewControllerLayoutGuide type="bottom" id="1nq-9L-qKd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nAt-jU-Dkf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="cPs-Xj-CzE"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ctV-Vl-zcQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1535" y="451"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -261,4 +284,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="1tJ-fg-T5Z"/>
+    </inferredMetricsTieBreakers>
 </document>

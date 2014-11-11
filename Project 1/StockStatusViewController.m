@@ -25,6 +25,7 @@
 @interface StockStatusViewController () <UITableViewDataSource, UITableViewDelegate>
 - (IBAction)removePressed:(id)sender;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *removeButton;
+@property NSInteger selectedIndexPathRow;
 
 @end
 
@@ -42,6 +43,8 @@
     holdingsData = [[NSMutableArray alloc] init];
     watchingData = [[NSMutableArray alloc] init];
     self.title = @"Stock Status";
+    
+    self.selectedIndexPathRow = 0;
     
     // Initalize the pull-to-refresh control.
     self.refreshControl = [[UIRefreshControl alloc] init];
@@ -318,6 +321,11 @@
     }
     
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    self.selectedIndexPathRow = indexPath.row;
+    [self performSegueWithIdentifier:@"StockDetails" sender:self];
 }
 
 - (void)removePressed:(id)sender

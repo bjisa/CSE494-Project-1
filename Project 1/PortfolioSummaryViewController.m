@@ -23,6 +23,8 @@
 
 @interface PortfolioSummaryViewController () <UITableViewDelegate, UITableViewDataSource>
 
+@property NSInteger selectedIndexPathRow;
+
 @end
 
 @implementation PortfolioSummaryViewController
@@ -41,6 +43,8 @@
     portfolio = [Portfolio sharedInstance];
     holdingsData = [[NSMutableArray alloc] init];
     self.title = @"Portfolio Summary";
+    
+    self.selectedIndexPathRow = 0;
     
     // Set up the pull-to-refresh control.
     self.refreshControl = [[UIRefreshControl alloc] init];
@@ -245,6 +249,11 @@
     }
     
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    self.selectedIndexPathRow = indexPath.row;
+    [self performSegueWithIdentifier:@"StockDetails" sender:self];
 }
 
 @end
