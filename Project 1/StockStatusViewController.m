@@ -28,6 +28,7 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *removeButton;
 @property NSInteger selectedIndexPathRow;
 @property NSInteger selectedSection;
+@property BOOL updateInProgress;
 
 @end
 
@@ -48,6 +49,7 @@
     
     self.selectedIndexPathRow = 0;
     self.selectedSection = 0;
+    self.updateInProgress = NO;
     
     // Initalize the pull-to-refresh control.
     self.refreshControl = [[UIRefreshControl alloc] init];
@@ -69,6 +71,7 @@
 {
     [super viewDidAppear:animated];
     // Every time the view appears, the data will be refreshed.
+    self.updateInProgress = YES;
     [spinner startAnimating];
     [self refreshData];
 }
@@ -183,12 +186,14 @@
                 [self.refreshControl endRefreshing];
                 // Stop the activity indicator spinner.
                 [spinner stopAnimating];
+                self.updateInProgress = NO;
             });
         });
     } else { // The user doesn't have any stocks.
         // We still need to stop the pull-to-refresh control and activity indicator spinner even if the user doesn't have  any stocks.
         [self.refreshControl endRefreshing];
         [spinner stopAnimating];
+        self.updateInProgress = NO;
     }
 }
 
@@ -329,7 +334,9 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     self.selectedIndexPathRow = indexPath.row;
     self.selectedSection = indexPath.section;
-    [self performSegueWithIdentifier:@"StockDetails" sender:self];
+    if (self.updateInProgress == NO) {
+        [self performSegueWithIdentifier:@"StockDetails" sender:self];
+    }
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

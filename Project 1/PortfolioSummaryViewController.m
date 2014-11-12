@@ -25,6 +25,7 @@
 @interface PortfolioSummaryViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property NSInteger selectedIndexPathRow;
+@property BOOL updateInProgress;
 
 @end
 
@@ -46,6 +47,7 @@
     self.title = @"Portfolio Summary";
     
     self.selectedIndexPathRow = 0;
+    self.updateInProgress = NO;
     
     // Set up the pull-to-refresh control.
     self.refreshControl = [[UIRefreshControl alloc] init];
@@ -66,6 +68,7 @@
 {
     [super viewDidAppear:animated];
     // The data will refresh every time the view reappears.
+    self.updateInProgress = YES;
     [spinner startAnimating];
     [self refreshData];
 }
@@ -145,6 +148,7 @@
                 [self.refreshControl endRefreshing];
                 // Stop the activity indicator spinner.
                 [spinner stopAnimating];
+                self.updateInProgress = NO;
             });
         });
     } else {
@@ -155,6 +159,7 @@
         [self.refreshControl endRefreshing];
         // Stop the activity indicator spinner.
         [spinner stopAnimating];
+        self.updateInProgress = NO;
     }
 }
 
@@ -273,7 +278,7 @@
     self.selectedIndexPathRow = indexPath.row;
     
     // Don't show details if the user taps on the total section
-    if (indexPath.section == 0) {
+    if (self.updateInProgress == NO && indexPath.section == 0) {
         [self performSegueWithIdentifier:@"StockDetails" sender:self];
     }
     
