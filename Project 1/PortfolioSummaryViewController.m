@@ -9,8 +9,9 @@
 #import "PortfolioSummaryViewController.h"
 #import "Portfolio.h"
 #import "PortfolioTableViewCell.h"
+#import "StockDetailsViewController.h"
 
-#define STOCK_DATA_QUERY_URL_P1 @"https://query.yahooapis.com/v1/public/yql?q=select%20Change%2C%20LastTradePriceOnly%2C%20Symbol%20from%20yahoo.finance.quote%20where%20symbol%20in%20("
+#define STOCK_DATA_QUERY_URL_P1 @"https://query.yahooapis.com/v1/public/yql?q=select%20%2A%20from%20yahoo.finance.quote%20where%20symbol%20in%20("
 #define COMMA_ENCODING @"%2C"
 #define QUOTATION_ENCODING @"%22"
 #define STOCK_DATA_QUERY_URL_P2 @")&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys"
@@ -253,7 +254,19 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     self.selectedIndexPathRow = indexPath.row;
-    [self performSegueWithIdentifier:@"StockDetails" sender:self];
+    
+    // Don't show details if the user taps on the total section
+    if (indexPath.section == 0) {
+        [self performSegueWithIdentifier:@"StockDetails" sender:self];
+    }
+    
+}
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"StockDetails"]) {
+        StockDetailsViewController *destination = segue.destinationViewController;
+        destination.stockData = holdingsData[self.selectedIndexPathRow];
+    }
 }
 
 @end

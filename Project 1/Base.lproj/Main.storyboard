@@ -86,7 +86,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="c7y-TU-f2M">
-                                <rect key="frame" x="89" y="190" width="143" height="29"/>
+                                <rect key="frame" x="89" y="155" width="143" height="29"/>
                                 <segments>
                                     <segment title="Watching"/>
                                     <segment title="Holding"/>
@@ -96,12 +96,12 @@
                                 </connections>
                             </segmentedControl>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" disabledBackground="first" translatesAutoresizingMaskIntoConstraints="NO" id="C4p-AF-WcF">
-                                <rect key="frame" x="188" y="269" width="97" height="30"/>
+                                <rect key="frame" x="188" y="209" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Number of shares:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xri-92-TSl">
-                                <rect key="frame" x="38" y="272" width="142" height="21"/>
+                                <rect key="frame" x="38" y="212" width="142" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -113,7 +113,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wBA-Rs-lj4">
-                                <rect key="frame" x="124" y="307" width="72" height="30"/>
+                                <rect key="frame" x="124" y="247" width="72" height="30"/>
                                 <state key="normal" title="Add Stock">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -222,9 +222,9 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="+0.12 (0.12%)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="46P-Xi-dEq">
-                                <rect key="frame" x="16" y="172" width="288" height="21"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="123.12" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="daJ-5v-hJV">
+                                <rect key="frame" x="16" y="144" width="288" height="27"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -300,6 +300,12 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="+0.12 (0.12%)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="46P-Xi-dEq">
+                                <rect key="frame" x="16" y="179" width="288" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -309,6 +315,7 @@
                         <outlet property="change" destination="46P-Xi-dEq" id="kUS-Ed-sOw"/>
                         <outlet property="companyName" destination="q1N-Au-UBa" id="yC3-TC-A4n"/>
                         <outlet property="exchange" destination="NlJ-7t-GL3" id="Vek-4F-yFC"/>
+                        <outlet property="lastTradePrice" destination="daJ-5v-hJV" id="eWC-Cu-7ZF"/>
                         <outlet property="marketCapitalization" destination="ehi-gr-80W" id="FxP-dV-ElQ"/>
                         <outlet property="range" destination="ziX-wx-u9s" id="avU-lN-9gG"/>
                         <outlet property="volume" destination="pTn-nr-3wN" id="SOe-Co-EZB"/>
@@ -388,6 +395,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Ok8-ol-OyD"/>
+        <segue reference="1tJ-fg-T5Z"/>
     </inferredMetricsTieBreakers>
 </document>

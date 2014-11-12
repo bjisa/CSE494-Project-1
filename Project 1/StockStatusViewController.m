@@ -27,6 +27,7 @@
 - (IBAction)removePressed:(id)sender;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *removeButton;
 @property NSInteger selectedIndexPathRow;
+@property NSInteger selectedSection;
 
 @end
 
@@ -46,6 +47,7 @@
     self.title = @"Stock Status";
     
     self.selectedIndexPathRow = 0;
+    self.selectedSection = 0;
     
     // Initalize the pull-to-refresh control.
     self.refreshControl = [[UIRefreshControl alloc] init];
@@ -326,13 +328,21 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     self.selectedIndexPathRow = indexPath.row;
+    self.selectedSection = indexPath.section;
     [self performSegueWithIdentifier:@"StockDetails" sender:self];
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"StockDetails"]) {
         StockDetailsViewController *destination = segue.destinationViewController;
-        destination.stockData = watchingData[self.selectedIndexPathRow];
+        
+        if (self.selectedSection == WATCHING_SECTION) {
+            destination.stockData = watchingData[self.selectedIndexPathRow];
+        }
+        else if (self.selectedSection == HOLDING_SECTION) {
+            destination.stockData = holdingsData[self.selectedIndexPathRow];
+        }
+        
     }
 }
 

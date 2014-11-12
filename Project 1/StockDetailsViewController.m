@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *yearHigh;
 @property (weak, nonatomic) IBOutlet UILabel *yearLow;
 @property (weak, nonatomic) IBOutlet UILabel *marketCapitalization;
+@property (weak, nonatomic) IBOutlet UILabel *lastTradePrice;
 
 @end
 
@@ -27,6 +28,7 @@
     [super viewDidLoad];
     
     self.companyName.text = self.stockData[@"Name"];
+    self.lastTradePrice.text = self.stockData[@"LastTradePriceOnly"];
     self.exchange.text = [NSString stringWithFormat:@"(%@: %@)", self.stockData[@"StockExchange"], self.stockData[@"symbol"]];
     self.change.text = [NSString stringWithFormat:@"%@ (%.2f%%)", self.stockData[@"Change"], [self.stockData[@"Percent"] doubleValue]];
     self.range.text = self.stockData[@"DaysRange"];
@@ -35,6 +37,8 @@
     self.yearHigh.text = self.stockData[@"YearHigh"];
     self.yearLow.text = self.stockData[@"YearLow"];
     self.marketCapitalization.text = self.stockData[@"MarketCapitalization"];
+    
+    self.change.textColor = ([self.stockData[@"Percent"] doubleValue] > 0) ? [UIColor greenColor] : [UIColor redColor];
 }
 
 - (void)didReceiveMemoryWarning {
