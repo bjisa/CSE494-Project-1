@@ -107,6 +107,7 @@
                     if ([results[@"Symbol"] isEqualToString:[portfolio.holdings[0] ticker]]) {
                         // Calculate and set the total value of this stock holding.
                         [self getTotalValue:results numShares:[portfolio.holdings[0] numShares]];
+                        [self getPercentage:results];
                         [holdingsData addObject:results];
                         // Add its value to the total portfolio value.
                         totalPortfolioValue = [totalPortfolioValue decimalNumberByAdding:results[@"HoldingsValue"]];
@@ -163,6 +164,22 @@
     NSDecimalNumber * sharePrice = [NSDecimalNumber decimalNumberWithString:dict[@"LastTradePriceOnly"]];
     NSDecimalNumber * totalValue = [sharePrice decimalNumberByMultiplyingBy:[NSDecimalNumber decimalNumberWithString:[numShares stringValue]]];
     dict[@"HoldingsValue"] = totalValue;
+}
+
+- (void)getPercentage:(NSMutableDictionary *)dict
+{
+    // Calculate the percent change of a stock's value based on its price change and its last price.
+    NSDecimalNumber * change = [NSDecimalNumber decimalNumberWithString:dict[@"Change"]];
+    NSDecimalNumber * lastPrice = [NSDecimalNumber decimalNumberWithString:dict[@"LastTradePriceOnly"]];
+    NSDecimalNumber * previousPrice = [lastPrice decimalNumberBySubtracting:change];
+    NSDecimalNumber * percentChange;
+    // Check for a divide-by-zero error.
+    if (![previousPrice isEqualToNumber:[NSDecimalNumber zero]])
+        percentChange = [change decimalNumberByDividingBy:previousPrice];
+    else
+        percentChange = [NSDecimalNumber zero];
+    percentChange = [percentChange decimalNumberByMultiplyingBy:[NSDecimalNumber decimalNumberWithString:@"100"]];
+    dict[@"Percent"] = percentChange;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
